@@ -31,22 +31,32 @@ count**. It keeps at most **9 images** in the live LLM context and compacts
 
 ## Install
 
-Pi loads extensions from:
+Install as a Pi package from GitHub:
 
-- **global**: `~/.pi/agent/extensions/` → `C:\Users\mihai\.pi\agent\extensions\`
-- **project**: `<project>/.pi/extensions/`
+```bash
+pi install https://github.com/mike101200/pi-image-context-limit
+```
 
-Place the file as a direct `.ts` file or in a subdirectory with `index.ts`:
+This clones the repo under `~/.pi/agent/git/github.com/mike101200/pi-image-context-limit`
+and records the source in `~/.pi/agent/settings.json` (`packages`). Add `--local`/`-l`
+to record it in a project's `.pi/settings.json` instead.
 
-```powershell
-# global (recommended — applies to every project)
-copy index.ts "$env:USERPROFILE\.pi\agent\extensions\image-context-limit\index.ts"
+Manage it with:
 
-# or per-project
-# copy index.ts <project>\.pi\extensions\image-context-limit\index.ts
+```bash
+pi list                  # shows the installed package + checkout path
+pi update --extensions   # reconcile the checkout with the remote ref
+pi remove https://github.com/mike101200/pi-image-context-limit
 ```
 
 No compilation step — Pi loads TypeScript directly via jiti.
+
+<details>
+<summary>Alternative: manual copy (no package manager)</summary>
+
+Copy `index.ts` to `~/.pi/agent/extensions/image-context-limit/index.ts`
+(global) or `<project>/.pi/extensions/image-context-limit/index.ts` (per-project).
+</details>
 
 ## Register / verify
 
