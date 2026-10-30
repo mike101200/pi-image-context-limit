@@ -1,0 +1,18 @@
+{
+  "name": "pi-image-context-limit",
+  "version": "0.1.0",
+  "description": "Pi extension: automatic pi-vcc context compaction driven by image count (compacts before the 10th image)",
+  "license": "MIT",
+  "keywords": [
+    "pi-package",
+    "pi-extension"
+  ],
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  }
+}
